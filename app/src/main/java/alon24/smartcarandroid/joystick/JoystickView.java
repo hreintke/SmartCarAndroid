@@ -32,7 +32,7 @@ public class JoystickView extends View {
 
 	private Handler handler = new Handler();
 	private int initialInterval;
-	private final int normalInterval = 100;
+	private final int normalInterval = 250;
 
 	private Runnable handlerRunnable = new Runnable() {
 		@Override

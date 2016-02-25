@@ -9,7 +9,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_main2" tools:context=".MainActivity">
 
-    <TextView android:text="המכונית של תום" android:layout_width="wrap_content"
+    <TextView android:text="@string/textViewText" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textSize="30dp"
@@ -23,7 +23,7 @@
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="מאופשר"
+        android:text="Switch"
         android:id="@+id/connectModeSwitch"
         android:checked="false"
         android:layout_below="@id/textView"
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/carIpText"
-        android:text="192.168.4.1"
+        android:text="10.0.0.217"
         android:textAlignment="center"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
@@ -45,7 +45,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="התחבר"
+        android:text="Connect Status"
         android:id="@+id/connectStateBtn"
         android:checked="false"
         android:enabled="false"

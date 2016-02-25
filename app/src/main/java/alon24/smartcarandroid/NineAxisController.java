@@ -41,7 +41,7 @@ public class NineAxisController extends Fragment implements View.OnClickListener
 
         View view = inflater.inflate(R.layout.table_control_fragment, container, false);
 
-        repeatListener = new RepeatListener(0,100, this);
+        repeatListener = new RepeatListener(0,250, this);
         ((Button) view.findViewById(R.id.upBtn)).setOnTouchListener(repeatListener);
 
         ((Button)view.findViewById(R.id.downBtn)).setOnTouchListener(repeatListener);
@@ -93,7 +93,7 @@ public class NineAxisController extends Fragment implements View.OnClickListener
     }
 
     private void sendMoveXYMessage(int x, int y) {
-        String cmd = String.format("%s %d %d", CAR_COMMAND, x, y);
+        String cmd = String.format("{\"BTN\":[%d,%d]}", x, y);
         mCallback.onCarChangeDirectionCommand(cmd);
     }
 }

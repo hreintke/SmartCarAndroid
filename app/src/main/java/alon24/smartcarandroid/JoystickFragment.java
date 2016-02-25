@@ -68,7 +68,7 @@ public class JoystickFragment extends Fragment implements SeekBar.OnSeekBarChang
         public void OnMoved(int pan, int tilt) {
             txtX.setText(Integer.toString(pan));
             txtY.setText(Integer.toString(tilt));
-            String cmd = String.format("%s %d %d", CAR_COMMAND, pan, tilt);
+            String cmd = String.format("{\"JSTK\":[%d,%d]}", pan, tilt);
             mCallback.onCarChangeDirectionCommand(cmd);
         }
 
@@ -76,7 +76,7 @@ public class JoystickFragment extends Fragment implements SeekBar.OnSeekBarChang
         public void OnReleased() {
             txtX.setText("stopped");
             txtY.setText("stopped");
-            String cmd = String.format("%s %d %d", CAR_COMMAND, 0, 0);
+            String cmd = String.format("{\"JSTK\":[%d,%d]}", 0, 0);
             mCallback.onCarChangeDirectionCommand(cmd);
         }
     };
@@ -84,9 +84,8 @@ public class JoystickFragment extends Fragment implements SeekBar.OnSeekBarChang
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         updateUI();
-        String cmd = String.format("%s 4 %d %d", FREQ_COMMAND, freqBar.getProgress(), pwrBar.getProgress());
+        String cmd = String.format("{\"BAR\":[%d,%d]}", freqBar.getProgress(), pwrBar.getProgress());
         mCallback.onCarChangeDirectionCommand(cmd);
-
     }
 
     @Override

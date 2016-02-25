@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, CompoundButton.OnCheckedChangeListener, TextWatcher, CarMoveListener {
 
     private static String TAG = "SmartCar";
-    private String CONTROLLER_TYPE = "conteoller";
+    private String CONTROLLER_TYPE = "controller";
 //    private WebSocketClient mWebSocketClient;
     WifiManager wifi;
     String wifis[];
@@ -75,15 +75,6 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "מצא מכונית והתחבר", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -421,25 +412,25 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void run() {
                 if (!connectModeSwitch.isChecked()) {
-                    connectModeSwitch.setText("מכובה");
+                    connectModeSwitch.setText("Mode not Checked");
                     connectBtn.setEnabled(false);
-                    connectBtn.setText("מנותק!");
+                    connectBtn.setText("Not enabled");
                     connectBtn.setEnabled(false);
                     if (mConnection != null && mConnection.isConnected()) {
                         mConnection.disconnect();
                     }
                 }
                 else {
-                    connectModeSwitch.setText("מאופשר");
+                    connectModeSwitch.setText("Switch");
                     connectBtn.setEnabled(true);
                     if (isConnecting) {
                         connectBtn.setText("trying to connect!");
                         connectBtn.setEnabled(true);
                     } else if (isConnected) {
-                        connectBtn.setText("מחובר!");
+                        connectBtn.setText("connected");
 //                        connectBtn.setEnabled(true);
                     } else {
-                        connectBtn.setText("התחבר");
+                        connectBtn.setText("Not conected");
 //                        connectBtn.setEnabled(false);
                     }
                 }
